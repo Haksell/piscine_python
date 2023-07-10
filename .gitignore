@@ -1,2 +1,5 @@
 __pycache__
 .pytest_cache
+day0/ex09/build
+day0/ex09/dist
+day0/ex09/ft_package.egg-info
