@@ -5,3 +5,4 @@ test:
 clean:
 	@rm -rf `find . -type d -name .pytest_cache`
 	@rm -rf `find . -type d -name __pycache__`
+	@git clean -xdf
