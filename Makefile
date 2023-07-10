@@ -3,4 +3,5 @@ all:
 	pytest -rA -vv
 
 clean:
-	rm -rf */*/__pycache__
+	@rm -rf `find . -type d -name .pytest_cache`
+	@rm -rf `find . -type d -name __pycache__`
