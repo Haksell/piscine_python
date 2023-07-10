@@ -13,4 +13,8 @@ def test_whatis(capfd):
     check(capfd, [], "")
     check(capfd, ["0"], "I'm Even.\n")
     check(capfd, ["Hi!"], "AssertionError: argument is not an integer\n")
-    check(capfd, ["13", "5"], "AssertionError: more than one argument is provided\n")
+    check(
+        capfd,
+        ["13", "5"],
+        "AssertionError: more than one argument is provided\n",
+    )
