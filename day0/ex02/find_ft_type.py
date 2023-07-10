@@ -13,7 +13,7 @@ def all_thing_is_obj(obj: any) -> int:
         case builtins.dict:
             print("Dict :", t)
         case builtins.str:
-            print("Brian is in the kitchen :", t)
+            print(obj, "is in the kitchen :", t)
         case _:
             print("Type not found")
     return 42
