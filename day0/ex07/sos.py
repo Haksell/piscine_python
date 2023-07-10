@@ -42,6 +42,7 @@ NESTED_MORSE = {
 
 
 def main(argv):
+    """Print the morse code of the given string."""
     try:
         assert len(argv) == 2
         s = argv[1].upper()
