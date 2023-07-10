@@ -15,3 +15,6 @@ clean:
 	@rm -rf `find . -type d -name .pytest_cache`
 	@rm -rf `find . -type d -name __pycache__`
 	@rm -rf `find . -type d -name .mypy_cache`
+	@rm -rf day0/ex09/build
+	@rm -rf day0/ex09/dist
+	@rm -rf day0/ex09/ft_package.egg-info
