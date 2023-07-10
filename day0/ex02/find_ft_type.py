@@ -1,7 +1,8 @@
 import builtins
+import typing
 
 
-def all_thing_is_obj(obj: any) -> int:
+def all_thing_is_obj(obj: typing.Any) -> int:
     """Print the type of some objects and returns 42."""
     t = type(obj)
     match t:

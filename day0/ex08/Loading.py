@@ -1,5 +1,6 @@
 import os
 from time import time
+from typing import Iterator
 
 
 EIGHTS = " ▏▎▍▌▋▊▉█"
@@ -41,7 +42,7 @@ def _display_bar(i, len_, t0, last_print, width):
     return current_time
 
 
-def ft_tqdm(lst: range) -> None:
+def ft_tqdm(lst: range) -> Iterator[int]:
     """Decorate a range."""
     if len(lst) == 0:
         return

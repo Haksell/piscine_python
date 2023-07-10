@@ -1,7 +1,8 @@
 import math
+import typing
 
 
-def NULL_not_found(obj: any) -> int:
+def NULL_not_found(obj: typing.Any) -> int:
     """Print the type of falsy objects."""
     if type(obj) == float and math.isnan(obj) or not obj:
         print(obj, type(obj))
