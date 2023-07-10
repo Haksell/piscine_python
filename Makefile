@@ -1,6 +1,6 @@
-all:
-	flake8
-	pytest -rA -vv
+test:
+	@flake8 --ignore=D100 --exclude=test_*.py
+	@pytest -rA -vv
 
 clean:
 	@rm -rf `find . -type d -name .pytest_cache`

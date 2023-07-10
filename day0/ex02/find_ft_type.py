@@ -2,6 +2,7 @@ import builtins
 
 
 def all_thing_is_obj(obj: any) -> int:
+    """Print the type of some objects and returns 42."""
     t = type(obj)
     match t:
         case builtins.list:

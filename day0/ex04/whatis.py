@@ -2,6 +2,7 @@ import sys
 
 
 def main(argv):
+    """Print if the given number is odd or even."""
     argc = len(argv)
     print(argv, file=sys.stderr)
     match argc:

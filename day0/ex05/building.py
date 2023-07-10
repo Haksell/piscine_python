@@ -3,10 +3,12 @@ import sys
 
 
 def count_pred(s, pred):
+    """Count the number of characters in s for which pred is true."""
     return sum(map(pred, s))
 
 
 def main(s):
+    """Count the different types of characters in s."""
     if not s:
         print("What is the text to count?")
         s = sys.stdin.readline()
