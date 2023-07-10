@@ -3,6 +3,7 @@ import sys
 
 
 def main(argv):
+    """Print the words of a string that are longer than n."""
     try:
         assert len(argv) == 3
         s = argv[1]
