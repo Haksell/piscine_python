@@ -11,7 +11,7 @@ class OrderedSet(set):
 
 ft_list[1] = "World!"
 ft_tuple = ("Hello", "France!")
-ft_set.discard("tutu!")
+ft_set.remove("tutu!")
 ft_set.add("Paris")
 ft_set = OrderedSet(ft_set)
 ft_dict["Hello"] = "42Paris!"
