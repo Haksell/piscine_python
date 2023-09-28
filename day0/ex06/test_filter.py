@@ -25,18 +25,20 @@ def test_filter():
     check_function(lambda s: len(s) > 3, ["Hello", "World", "!"])
 
 
-def check_program(capfd, args, expected):
-    main(["filterstring.py"] + args)
-    out, _ = capfd.readouterr()
-    assert out == expected
+def check_program(capfd, args, expected_stdout, expected_stderr):
+    main(["filterstring.py"] + list(map(str, args)))
+    actual_stdout, actual_stderr = capfd.readouterr()
+    assert actual_stdout == expected_stdout
+    assert actual_stderr == expected_stderr
 
 
 def test_program(capfd):
-    check_program(capfd, ["Hello the World", 4], "['Hello', 'World']\n")
-    check_program(capfd, ["Hello the World", 99], "[]\n")
+    check_program(capfd, ["Hello the World", 4], "['Hello', 'World']\n", "")
+    check_program(capfd, ["Hello the World", 99], "[]\n", "")
     check_program(
         capfd,
         [3, "Hello the World"],
+        "",
         "AssertionError: the arguments are bad\n",
     )
-    check_program(capfd, [], "AssertionError: the arguments are bad\n")
+    check_program(capfd, [], "", "AssertionError: the arguments are bad\n")
