@@ -1,20 +1,26 @@
-from whatis import main
+import os
+import subprocess
 
 
-def check(capfd, args, expected):
-    main(["whatis.py"] + args)
-    out, _ = capfd.readouterr()
-    assert out == expected
+def check(args, stdout, stderr):
+    script_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), "whatis.py"
+    )
+    result = subprocess.run(
+        ["python", script_path] + args, text=True, capture_output=True
+    )
+    assert result.stdout == stdout
+    assert result.stderr == stderr
 
 
-def test_whatis(capfd):
-    check(capfd, ["14"], "I'm Even.\n")
-    check(capfd, ["-5"], "I'm Odd.\n")
-    check(capfd, [], "")
-    check(capfd, ["0"], "I'm Even.\n")
-    check(capfd, ["Hi!"], "AssertionError: argument is not an integer\n")
+def test_whatis():
+    check(["14"], "I'm Even.\n", "")
+    check(["-5"], "I'm Odd.\n", "")
+    check([], "", "")
+    check(["0"], "I'm Even.\n", "")
+    check(["Hi!"], "", "AssertionError: argument is not an integer\n")
     check(
-        capfd,
         ["13", "5"],
+        "",
         "AssertionError: more than one argument is provided\n",
     )

@@ -1,20 +1,12 @@
+import re
 import sys
 
+sys.excepthook = lambda type, value, _: print(
+    f"{type.__name__}: {value}", file=sys.stderr
+)
 
-def main(argv):
-    """Print if the given number is odd or even."""
-    argc = len(argv)
-    print(argv, file=sys.stderr)
-    match argc:
-        case 2:
-            try:
-                n = int(argv[1])
-                print("I'm Odd." if n & 1 else "I'm Even.")
-            except ValueError:
-                print("AssertionError: argument is not an integer")
-        case _ if argc >= 3:
-            print("AssertionError: more than one argument is provided")
-
-
-if __name__ == "__main__":
-    main(sys.argv)
+if len(sys.argv) < 2:
+    sys.exit()
+assert len(sys.argv) == 2, "more than one argument is provided"
+assert re.fullmatch(r"-?\d+", sys.argv[1]), "argument is not an integer"
+print("I'm Odd." if ord(sys.argv[1][-1]) & 1 else "I'm Even.")
