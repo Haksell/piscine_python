@@ -1,5 +1,5 @@
 END := \033[0m
-GREEN := \033[32m
+GREEN := \033[1m\033[32m
 
 test:
 	@flake8 --ignore=D100 --exclude=test_*.py
