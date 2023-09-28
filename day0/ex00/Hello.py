@@ -5,7 +5,10 @@ ft_dict = {"Hello": "titi!"}
 
 
 class OrderedSet(set):
+    """Class that represents an ordered set."""
+
     def __str__(self):
+        """Return a string representation of the ordered set."""
         return "{" + str(sorted(self))[1:-1] + "}"
 
 
