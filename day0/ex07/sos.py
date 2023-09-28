@@ -46,7 +46,7 @@ def main(argv):
     try:
         assert len(argv) == 2
         s = argv[1].upper()
-        assert type(s) == str and all(c in NESTED_MORSE for c in s)
+        assert type(s) is str and all(c in NESTED_MORSE for c in s)
     except AssertionError:
         print("AssertionError: the arguments are bad")
     else:

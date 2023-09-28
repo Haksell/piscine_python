@@ -7,7 +7,7 @@ def give_bmi(
 ) -> list[int | float]:
     """Return a list of BMI values calculated from height and weight."""
     assert (
-        type(height) == list and type(weight) == list
+        type(height) is list and type(weight) is list
     ), "Both arguments must be lists."
     assert len(height) == len(weight), "Both lists must have same length."
     assert all(
