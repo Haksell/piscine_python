@@ -24,6 +24,15 @@ def zoom_image(img_array: np.ndarray, scale: float) -> np.ndarray:
     )
 
 
+def transpose_image(img_array: np.ndarray) -> np.ndarray:
+    """Return a transposed image."""
+    transposed_array = np.zeros((img_array.shape[1], img_array.shape[0]))
+    for y in range(img_array.shape[0]):
+        for x in range(img_array.shape[1]):
+            transposed_array[x][y] = img_array[y][x]
+    return transposed_array
+
+
 def main():
     """Display a zoomed version of animal.jpeg."""
     img_array = ft_load(FILENAME)
@@ -31,9 +40,10 @@ def main():
         sys.exit(1)
     print(img_array)
     zoomed_array = zoom_image(img_array, ZOOM_SCALE)
-    print("New shape after slicing:", zoomed_array.shape)
-    print(zoomed_array)
-    plt.imshow(zoomed_array, cmap="gray")
+    transposed_array = transpose_image(zoomed_array)
+    print("New shape after Transpose:", transposed_array.shape)
+    print(transposed_array)
+    plt.imshow(transposed_array, cmap="gray")
     plt.show()
 
 
