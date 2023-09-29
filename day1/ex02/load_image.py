@@ -1,3 +1,4 @@
+import sys
 from PIL import Image
 import numpy as np
 
@@ -11,8 +12,8 @@ def ft_load(path: str) -> np.ndarray | None:
         print("The shape of image is:", img_array.shape)
         return img_array
     except FileNotFoundError:
-        print("Error: The file does not exist.")
+        print("Error: The file does not exist.", file=sys.stderr)
         return None
     except IOError:
-        print("Error: The image file could not be read.")
+        print("Error: The image file could not be read.", file=sys.stderr)
         return None
