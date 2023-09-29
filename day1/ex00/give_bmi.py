@@ -13,7 +13,7 @@ def give_bmi(
     assert all(
         isinstance(x, numbers.Number) for x in chain(height, weight)
     ), "Both lists must contain only numbers."
-    return [w / h / h for h, w in zip(height, weight)]
+    return [w / (h * h) for h, w in zip(height, weight)]
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
