@@ -1,11 +1,12 @@
-def _identity(x):
+def identity(x):
+    """Return the argument."""
     return x
 
 
 def ft_filter(func, seq):
     """Filter."""
     if func is None:
-        func = _identity
+        func = identity
     return (x for x in seq if func(x))
 
 

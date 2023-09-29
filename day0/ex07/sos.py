@@ -1,5 +1,4 @@
 import sys
-import traceback
 
 NESTED_MORSE = {
     " ": "/",
@@ -44,17 +43,15 @@ NESTED_MORSE = {
 
 def main(argv):
     """Print the morse code of the given string."""
-    try:
-        assert len(argv) == 2, "the arguments are bad"
-        s = argv[1].upper()
-        assert type(s) is str and all(
-            c in NESTED_MORSE for c in s
-        ), "the arguments are bad"
-    except AssertionError:
-        traceback.print_exc(0)
-    else:
-        print(" ".join(NESTED_MORSE[c] for c in s))
+    assert len(argv) == 2, "the arguments are bad"
+    s = argv[1].upper()
+    assert type(s) is str and all(c in NESTED_MORSE for c in s)
+    print(" ".join(NESTED_MORSE[c] for c in s))
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    sys.tracebacklimit = 0
+    try:
+        main(sys.argv)
+    except AssertionError as e:
+        print(f"{e.__class__.__name__}: the arguments are bad", file=sys.stderr)
