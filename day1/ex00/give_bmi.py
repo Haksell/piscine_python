@@ -1,17 +1,14 @@
-from itertools import chain
 import numbers
 
 
-def give_bmi(
-    height: list[int | float], weight: list[int | float]
-) -> list[int | float]:
+def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
     """Return a list of BMI values calculated from height and weight."""
     assert (
         type(height) is list and type(weight) is list
     ), "Both arguments must be lists."
     assert len(height) == len(weight), "Both lists must have same length."
     assert all(
-        isinstance(x, numbers.Number) for x in chain(height, weight)
+        isinstance(x, numbers.Number) for x in height + weight
     ), "Both lists must contain only numbers."
     return [w / (h * h) for h, w in zip(height, weight)]
 
