@@ -4,7 +4,7 @@ GREEN := \033[1m\033[32m
 test:
 	@flake8 --ignore=D100 --exclude=test_*.py
 	@echo "$(GREEN)✓ flake8$(END)"
-	@mypy --ignore-missing-imports .
+	@mypy --ignore-missing-imports --explicit-package-bases .
 	@echo "$(GREEN)✓ mypy$(END)"
 	@pytest
 	@echo "$(GREEN)✓ pytest$(END)"
