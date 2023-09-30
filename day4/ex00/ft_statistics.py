@@ -1,7 +1,10 @@
-import numbers
-import typing
+# The filename is ft_statistics.py and not statistics.py because the latter
+# is a module in the standard library.
 
-FUNCTIONS = {
+import numbers
+from typing import Any
+
+FUNCTIONS: Any = {
     "mean": lambda *args: sum(args) / len(args),
     "median": lambda *args: sorted(args)[len(args) // 2],
     "quartile": lambda *args: [
@@ -14,7 +17,7 @@ FUNCTIONS = {
 }
 
 
-def ft_statistics(*args: typing.Any, **kwargs: typing.Any) -> None:
+def ft_statistics(*args: Any, **kwargs: Any) -> None:
     """Print various statistics."""
     for arg in args:
         if not isinstance(arg, numbers.Number):
