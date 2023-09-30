@@ -7,22 +7,20 @@ class Character(ABC):
     @abstractmethod
     def __init__(self, first_name, is_alive=True):
         """Create a new character."""
-        pass
 
     @abstractmethod
-    def die():
-        """Kill the character."""
-        pass
+    def die(self):
+        """Kill a character."""
 
 
 class Stark(Character):
-    """A class representing the Stark family."""
+    """A class representing a Stark family member."""
 
     def __init__(self, first_name, is_alive=True):
-        """Create a new Stark character."""
+        """Create a new Stark family member."""
         self.first_name = first_name
         self.is_alive = is_alive
 
     def die(self):
-        """Kill a Stark."""
+        """Kill a Stark family member."""
         self.is_alive = False
