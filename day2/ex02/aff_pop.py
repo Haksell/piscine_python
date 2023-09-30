@@ -21,14 +21,17 @@ def aff_pop():
     df = load("../data/population_total.csv")
     df = df[(df["country"] == "France") | (df["country"] == "Mexico")]
     df = df.set_index("country")
-    df = df.applymap(parse_pop)
+    df = df.map(parse_pop)
     df = df.loc[:, "1800":"2050"]
     df = df.transpose()
-    print(df)
     _, ax = plt.subplots(figsize=(6, 5))
     df.plot(ax=ax)
-    ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, pos: f"{x/1e6:.0f}M"))
-    ax.set_yticks([i * 2e7 for i in range(9)])
+    ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{x/1e6:.0f}M"))
+    max_population = df.values.max()
+    tick_step = 2e7
+    num_ticks = int(max_population / tick_step) + 2
+    ax.set_yticks([i * tick_step for i in range(num_ticks)])
+    ax.legend(["France", "Mexico"])
     plt.title("Population Projections")
     plt.xlabel("Year")
     plt.ylabel("Population")
