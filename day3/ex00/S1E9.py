@@ -14,7 +14,7 @@ class Character(ABC):
 
 
 class Stark(Character):
-    """A class representing a Stark family member."""
+    """Representing the Stark family."""
 
     def __init__(self, first_name, is_alive=True):
         """Create a new Stark family member."""
