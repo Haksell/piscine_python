@@ -2,7 +2,7 @@ from load_csv import load
 import matplotlib.pyplot as plt
 
 
-def aff_life():
+def main():
     """Draws a graph of life expectancy in France from 1800 to 2100."""
     df = load("../data/life_expectancy_years.csv")
     df = df[df["country"] == "France"]
@@ -16,4 +16,4 @@ def aff_life():
 
 
 if __name__ == "__main__":
-    aff_life()
+    main()

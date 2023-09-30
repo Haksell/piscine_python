@@ -16,8 +16,8 @@ def parse_pop(x):
             return float(x)
 
 
-def aff_pop():
-    """Draws a graph of population projections from  in France from 1800 to 2050."""
+def main():
+    """Draw a graph of population projections from 1800 to 2050."""
     df = load("../data/population_total.csv")
     df = df[(df["country"] == "France") | (df["country"] == "Mexico")]
     df = df.set_index("country")
@@ -39,4 +39,4 @@ def aff_pop():
 
 
 if __name__ == "__main__":
-    aff_pop()
+    main()
